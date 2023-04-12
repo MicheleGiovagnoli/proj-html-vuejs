@@ -13,9 +13,4 @@ export default {
 </script>
 <style lang="scss">
 @use './styles/general.scss';
-
-.wrapper {
-  width: 80%;
-  margin: auto;
-}
 </style>
