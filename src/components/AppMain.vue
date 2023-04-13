@@ -104,7 +104,7 @@ export default {
                     day: '12',
                     month: 'JAN',
                     title: 'How to Make Friends as a Grown-Up',
-                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?[...]",
                     author: 'John Doe',
                     type: 'Lifestyle, Travel',
                     comments: '12 Comments'
@@ -114,7 +114,7 @@ export default {
                     day: '12',
                     month: 'JAN',
                     title: 'Simple ways to Have a Pretty Face',
-                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?[...]",
                     author: 'John Doe',
                     type: 'Lifestyle, Travel',
                     comments: '12 Comments'
@@ -124,7 +124,7 @@ export default {
                     day: '12',
                     month: 'JAN',
                     title: 'Ranking the greatest players in basketball',
-                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?[...]",
                     author: 'John Doe',
                     type: 'Sport, Business',
                     comments: '12 Comments'
@@ -134,7 +134,7 @@ export default {
                     day: '12',
                     month: 'JAN',
                     title: 'Top Camper Trailer Towing Tips',
-                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?[...]",
                     author: 'John Doe',
                     type: 'Travel, Lifestyle',
                     comments: '12 Comments'
@@ -144,13 +144,14 @@ export default {
                     day: '8',
                     month: 'JAN',
                     title: 'Top Camper Trailer Towing Tips',
-                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?[...]",
                     author: 'John Doe',
                     type: 'Travel, Lifestyle',
                     comments: '12 Comments'
                 },
             ],
             imageBlog: ['blog-13.jpg', 'blog-16.jpg', 'blog-20.jpg', 'blog-23.jpg', 'blog-29.jpg', 'blog-40.jpg'],
+            instagram: ['29415304_166583630713703_1032667922171953152_n.jpg', '29415620_196477127626244_3250318472361541632_n.jpg', '29739607_2020680068220520_4509928046932787200_n.jpg', '30077195_2066750973610181_3733150062893596672_n.jpg', '30078414_1274410412703843_8290935809419247616_n.jpg', '30087804_253872848488989_8792603541668626432_n.jpg']
         }
     }
 }
@@ -250,7 +251,41 @@ export default {
                     </div>
                 </div>
                 <div class="sidebar">
-                    ciao
+                    <div class="box">
+                        <h3>LATEST FROM TWITTER</h3>
+                        <div class="twitter">
+                            <div class="icon">
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+                            <div class="text">
+                                <span>If you have any suggestions fot the next updates, let us know</span>
+                                <div class="date">
+                                    <span>01:05 PM Sep 18th</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="twitter">
+                            <div class="icon">
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+                            <div class="text">
+                                <span>We have just updated Porto Admin. Check the changelog for more information.</span>
+                                <div class="date">
+                                    <span>01:04 PM Sep 18th</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h3>PHOTOS FROM INSTAGRAM</h3>
+                        <div class="instagram">
+                            <img :src="getImagePath(instagram[i])" :alt="instagram[i]" v-for="(element, i ) in 6" :key="i"
+                                class="imageSpecial">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h3>TAGS</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -375,6 +410,7 @@ export default {
                         .day {
                             background-color: $color-background-1;
                             padding: 10px 5px;
+                            text-align: center;
                         }
 
                         .month {
@@ -382,6 +418,7 @@ export default {
                             font-size: 10px;
                             padding: 5px;
                             color: $color-white;
+                            text-align: center;
                         }
                     }
 
@@ -417,6 +454,45 @@ export default {
 
         .sidebar {
             width: 30%;
+
+            .box {
+                padding-left: 20px;
+                padding-bottom: 30px;
+
+                h3 {
+                    font-size: 13px;
+                    padding-bottom: 15px;
+                }
+
+                .twitter {
+                    display: flex;
+                    padding: 10px 0px;
+
+                    .icon {
+                        padding-right: 10px;
+                    }
+
+                    .text {
+                        color: $color-text-3;
+
+                        .date {
+                            color: $color-primary;
+                            padding-top: 10px;
+                        }
+                    }
+
+                }
+
+                .instagram {
+
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    img {
+                        width: calc(100% /3);
+                    }
+                }
+            }
         }
     }
 }

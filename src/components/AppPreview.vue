@@ -39,7 +39,7 @@ export default {
     .info {
         width: 80%;
         color: white;
-        font-size: 10px;
+        font-size: 40%;
         position: absolute;
         bottom: 10%;
         left: 10%;
