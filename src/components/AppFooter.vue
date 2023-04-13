@@ -56,9 +56,19 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
-
+                <div class="left">
+                    <img src="../assets/logo-footer.png" alt="">
+                    <span class="footer-text">@Copyright 2020. All Rights Reserved</span>
+                </div>
+                <div class="right ">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="footer-text">FAW's</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="footer-text">Sitemap</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="footer-text">Contact Us</span>
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -194,6 +204,35 @@ export default {
 
         .container {
             @include mixins.center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .footer-text {
+
+                color: $color-text-5;
+                padding-left: 20px;
+                font-size: 10px;
+
+            }
+
+            .left {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 100px;
+                }
+            }
+
+            .right {
+                i {
+                    color: $color-text-2;
+                    font-size: 8px;
+                    padding-left: 20px;
+                }
+            }
         }
     }
 }
