@@ -1,9 +1,11 @@
 <script>
 import AppPreview from './AppPreview.vue';
+import AppBlueBar from './AppBlueBar.vue';
 export default {
     nome: 'AppMain',
     components: {
         AppPreview,
+        AppBlueBar,
     },
     methods: {
         getImagePath: function (img) {
@@ -151,7 +153,9 @@ export default {
                 },
             ],
             imageBlog: ['blog-13.jpg', 'blog-16.jpg', 'blog-20.jpg', 'blog-23.jpg', 'blog-29.jpg', 'blog-40.jpg'],
-            instagram: ['29415304_166583630713703_1032667922171953152_n.jpg', '29415620_196477127626244_3250318472361541632_n.jpg', '29739607_2020680068220520_4509928046932787200_n.jpg', '30077195_2066750973610181_3733150062893596672_n.jpg', '30078414_1274410412703843_8290935809419247616_n.jpg', '30087804_253872848488989_8792603541668626432_n.jpg']
+            instagram: ['29415304_166583630713703_1032667922171953152_n.jpg', '29415620_196477127626244_3250318472361541632_n.jpg', '29739607_2020680068220520_4509928046932787200_n.jpg', '30077195_2066750973610181_3733150062893596672_n.jpg', '30078414_1274410412703843_8290935809419247616_n.jpg', '30087804_253872848488989_8792603541668626432_n.jpg'],
+            tags: ['DESIGN', 'BRANDS', 'VIDEO', 'BUSINESS', 'TRAVEL'],
+            blueBar: ['GADGETS', 'PHOTOGRAPHY', 'LIFESTYLE', 'FASHION', 'RECIPES', 'TRAVEL'],
         }
     }
 }
@@ -213,6 +217,9 @@ export default {
                 </div>
             </div>
         </div>
+
+        <!-- BLUEBAR -->
+        <AppBlueBar :blueBar="blueBar" />
 
         <!--CENTER  -->
         <div class="center">
@@ -285,6 +292,17 @@ export default {
                     </div>
                     <div class="box">
                         <h3>TAGS</h3>
+                        <div class="tags">
+                            <div class="button-black" v-for="(element, i) in tags" :key="i">
+                                <span>{{ element }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h3>FIND US ON FACEBOOK</h3>
+                        <div class="facebook">
+                            <span>Okler Themes</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -295,10 +313,7 @@ export default {
 <style lang="scss">
 @use '../styles/partials/variables' as*;
 @use '../styles/partials/mixins';
-
-.w-100-3 {
-    width: calc((100% / 3) - 5px);
-}
+@use '../styles/general.scss';
 
 .preview {
     background-color: $color-background-1;
@@ -313,6 +328,7 @@ export default {
 
 .posts {
     background-color: $color-white;
+    padding-bottom: 50px;
 
     .container-posts {
         padding: 20px 0px;
@@ -382,6 +398,7 @@ export default {
 
 .center {
     background-color: $color-white;
+    padding: 50px 0px;
 
     .wrapper {
         @include mixins.center;
@@ -457,7 +474,7 @@ export default {
 
             .box {
                 padding-left: 20px;
-                padding-bottom: 30px;
+                padding-bottom: 50px;
 
                 h3 {
                     font-size: 13px;
@@ -490,6 +507,20 @@ export default {
 
                     img {
                         width: calc(100% /3);
+                    }
+                }
+
+                .tags {
+                    display: flex;
+                }
+
+                .facebook {
+                    border-left: 5px solid $color-border-5;
+                    padding: 10px;
+
+                    span {
+                        color: $color-primary;
+
                     }
                 }
             }
