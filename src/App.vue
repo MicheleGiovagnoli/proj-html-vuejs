@@ -12,11 +12,6 @@ export default {
     AppHeader,
     AppMain,
   },
-  data() {
-    return {
-      preview: ["../assets/blog-46", "../assets/blog-47", "../assets/blog-48", "../assets/blog-49", "../assets/blog-50", "../assets/blog-51"]
-    }
-  }
 }
 </script>
 <style lang="scss">

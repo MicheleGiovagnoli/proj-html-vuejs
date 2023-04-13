@@ -1,92 +1,52 @@
 <template>
     <!-- Creare la struttura dati e renderli dinamici -->
-    <div class="preview">
-        <div class="container">
-            <div class="card">
-                <img src="../assets/blog-46.jpg" alt="img">
-                <div class="info">
-                    <button class="button-primary">photography</button>
-                    <h1>How to take better concert pictures in 30 Seconds</h1>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../assets/blog-47.jpg" alt="img">
-                <div class="info">
-                    <button class="button-primary">photography</button>
-                    <h1>How to take better concert pictures in 30 Seconds</h1>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../assets/blog-48.jpg" alt="img">
-                <div class="info">
-                    <button class="button-primary">photography</button>
-                    <h1>How to take better concert pictures in 30 Seconds</h1>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../assets/blog-49.jpg" alt="img">
-                <div class="info">
-                    <button class="button-primary">photography</button>
-                    <h1>How to take better concert pictures in 30 Seconds</h1>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../assets/blog-50.jpg" alt="img">
-                <div class="info">
-                    <button class="button-primary">photography</button>
-                    <h1>How to take better concert pictures in 30 Seconds</h1>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../assets/blog-51.jpg" alt="img">
-                <div class="info">
-                    <button class="button-primary">photography</button>
-                    <h1>How to take better concert pictures in 30 Seconds</h1>
-                </div>
-            </div>
+    <div class="card">
+        <img :src="getImagePath(images)" :alt="images">
+        <div class="info">
+            <button class="button-primary">{{ types }}</button>
+            <h1>{{ title }}</h1>
         </div>
     </div>
 </template>
 <script>
 export default {
-    nome: 'AppPreview',
+    nome: "AppPreview",
+    props: {
+        types: String,
+        images: String,
+        title: String,
+    },
+    methods: {
+        getImagePath: function (img) {
+            return new URL(`../assets/${img}`, import.meta.url).href;
+        }
+    },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../styles/partials/variables' as*;
 @use '../styles/partials/mixins';
 @use '../styles/general.scss';
 
-.preview {
-    background-color: $color-background-1;
+.card {
+    position: relative;
+    width: calc(100% / 3);
+    padding: 10px;
 
-    .container {
-        @include mixins.center;
-        display: flex;
-        flex-wrap: wrap;
+    img {
+        width: 100%;
+    }
 
-        img {
-            padding: 10px;
-            width: 100%;
-        }
+    .info {
+        width: 80%;
+        color: white;
+        font-size: 10px;
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
 
-        .card {
-            position: relative;
-            width: calc(100% / 3);
-
-
-            .info {
-                width: 90%;
-                color: white;
-                font-size: 10px;
-                position: absolute;
-                bottom: 30px;
-                left: 30px;
-
-                button {
-                    margin-bottom: 20px;
-                }
-            }
+        button {
+            margin-bottom: 20px;
         }
     }
 }
