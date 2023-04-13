@@ -5,10 +5,7 @@
                 <span>everything about lifestyle, travel and gadgets</span>
                 <!-- Creare struttura dati e Rendere Dinamici  -->
                 <ul>
-                    <li>SIGN IN</li>
-                    <li>ABOUT US</li>
-                    <li>CONTACT US</li>
-                    <li>BUY NOW</li>
+                    <li v-for="(element, i) in headerTop" :key="i">{{ element }}</li>
                 </ul>
             </div>
         </div>
@@ -21,13 +18,7 @@
             <div class="container">
                 <!-- Creare struttura dati e Rendere Dinamici -->
                 <ul>
-                    <li>HOME</li>
-                    <li>ELEMENTS</li>
-                    <li>FEATURES</li>
-                    <li>PAGES</li>
-                    <li>PORTFOLIO</li>
-                    <li>BLOG</li>
-                    <li>SHOP</li>
+                    <li v-for="(element, i) in headerBottom" :key="i">{{ element }}</li>
                 </ul>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
@@ -37,6 +28,12 @@
 <script>
 export default {
     nome: 'AppHeader',
+    data() {
+        return {
+            headerTop: ['SIGN IN', 'ABOUT US', 'CONTACT US', 'BUY NOW'],
+            headerBottom: ['HOME', 'ELEMENTS', 'FEATURES', 'PAGES', 'PORTFOLIO', 'BLOG', 'SHOP']
+        }
+    }
 }
 </script>
 <style lang="scss">

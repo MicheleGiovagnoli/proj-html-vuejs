@@ -31,10 +31,9 @@ export default {
 .card {
     position: relative;
     width: calc(100% / 3);
-    padding: 10px;
 
     img {
-        width: 100%;
+        width: 97%;
     }
 
     .info {

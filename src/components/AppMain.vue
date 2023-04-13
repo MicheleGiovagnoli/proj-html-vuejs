@@ -1,47 +1,3 @@
-<template>
-    <div class="main">
-        <!-- Passare i dati attraverso le props e generare 'carte' -->
-        <div class="preview">
-            <div class="container">
-                <AppPreview v-for="(element, i) in preview" :key="i" :images="element.img" :types="element.type"
-                    :title="element.title" />
-            </div>
-        </div>
-        <!-- Posts -->
-        <div class="posts">
-            <div class="container-posts">
-                <div class="popular-posts w-100-3">
-                    <h3>POPULAR POSTS</h3>
-                    <div class="card-posts" v-for="(element, i) in popularPosts" :key="i">
-                        <img :src="getImagePath(element.img)" :alt="element.img">
-                        <div class="info">
-                            <span>{{ element.title }}</span>
-                            <span class="date">{{ element.date }}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="recent-posts w-100-3">
-                    <h3>RECENT POSTS</h3>
-
-                    <div class="card-posts" v-for="(element, i) in recentPosts" :key="i">
-                        <img :src="getImagePath(element.img)" :alt="element.img">
-                        <div class="info">
-                            <span>{{ element.title }}</span>
-                            <span class="date">{{ element.date }}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="featured-posts w-100-3">
-                    <h3>FEATURED POSTS</h3>
-                    <AppPreview :images="'blog-66.jpg'" :types="'RECIPES'"
-                        :title="'Tips to Help You Quickly Prepare your Lunch'" />
-                    <div class="featured-author">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
 <script>
 import AppPreview from './AppPreview.vue';
 export default {
@@ -141,22 +97,177 @@ export default {
                     title: '12 Healthiest Foods to Eat for Breakfast',
                     date: 'january 12, 2019'
                 },
-            ]
+            ],
+            item: [
+                {
+                    image: 'blog-54.jpg',
+                    day: '12',
+                    month: 'JAN',
+                    title: 'How to Make Friends as a Grown-Up',
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    author: 'John Doe',
+                    type: 'Lifestyle, Travel',
+                    comments: '12 Comments'
+                },
+                {
+                    image: 'blog-55 (1).jpg',
+                    day: '12',
+                    month: 'JAN',
+                    title: 'Simple ways to Have a Pretty Face',
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    author: 'John Doe',
+                    type: 'Lifestyle, Travel',
+                    comments: '12 Comments'
+                },
+                {
+                    image: 'blog-56 (1).jpg',
+                    day: '12',
+                    month: 'JAN',
+                    title: 'Ranking the greatest players in basketball',
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    author: 'John Doe',
+                    type: 'Sport, Business',
+                    comments: '12 Comments'
+                },
+                {
+                    image: 'blog-58 (1).jpg',
+                    day: '12',
+                    month: 'JAN',
+                    title: 'Top Camper Trailer Towing Tips',
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    author: 'John Doe',
+                    type: 'Travel, Lifestyle',
+                    comments: '12 Comments'
+                },
+                {
+                    image: null,
+                    day: '8',
+                    month: 'JAN',
+                    title: 'Top Camper Trailer Towing Tips',
+                    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, officia ratione fugiat officiis voluptate, dolores voluptatum omnis eum eveniet ad est eaque praesentiumminus maxime. Quis autem quaerat repellendus voluptatem?",
+                    author: 'John Doe',
+                    type: 'Travel, Lifestyle',
+                    comments: '12 Comments'
+                },
+            ],
+            imageBlog: ['blog-13.jpg', 'blog-16.jpg', 'blog-20.jpg', 'blog-23.jpg', 'blog-29.jpg', 'blog-40.jpg'],
         }
     }
 }
 </script>
+<template>
+    <div class="main">
+
+        <!-- PREVIEW -->
+        <div class="preview">
+            <div class="container">
+                <AppPreview v-for="(element, i) in preview" :key="i" :images="element.img" :types="element.type"
+                    :title="element.title" />
+            </div>
+        </div>
+
+        <!-- POSTS -->
+        <div class="posts">
+            <div class="container-posts">
+
+                <!-- POPULAR POSTS -->
+                <div class="popular-posts w-100-3">
+                    <h3>POPULAR POSTS</h3>
+                    <div class="card-posts" v-for="(element, i) in popularPosts" :key="i">
+                        <img :src="getImagePath(element.img)" :alt="element.img">
+                        <div class="info">
+                            <span>{{ element.title }}</span>
+                            <span class="date">{{ element.date }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT POSTS -->
+                <div class="recent-posts w-100-3">
+                    <h3>RECENT POSTS</h3>
+                    <div class="card-posts" v-for="(element, i) in recentPosts" :key="i">
+                        <img :src="getImagePath(element.img)" :alt="element.img">
+                        <div class="info">
+                            <span>{{ element.title }}</span>
+                            <span class="date">{{ element.date }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURED POSTS -->
+                <div class="featured-posts w-100-3">
+                    <h3>FEATURED POSTS</h3>
+                    <AppPreview :images="'blog-66.jpg'" :types="'RECIPES'"
+                        :title="'Tips to Help You Quickly Prepare your Lunch'" />
+                    <div class="featured-author">
+                        <h3>FEATURED AUTHOR</h3>
+                        <div class="card-posts">
+                            <img src="../assets/avatar.jpg" alt="img">
+                            <div class="info">
+                                <span>John Doe</span>
+                                <span class="date">Lorem ipsum dolor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--CENTER  -->
+        <div class="center">
+            <div class="wrapper">
+                <div class="item">
+                    <div class="box" v-for="(element, i) in item" :key="i">
+                        <div class="image">
+                            <img :src="getImagePath(element.image)" alt="blog" v-show="element.image != null">
+                            <img :src="getImagePath(imageBlog[i])" :alt="imageBlog[i]"
+                                v-for="(element, i ) in element.image == null ? imageBlog : ''" :key="i"
+                                class="imageSpecial">
+                        </div>
+                        <div class="info">
+                            <div class="date">
+                                <div class="day">
+                                    <span>{{ element.day }}</span>
+                                </div>
+                                <div class="month">
+                                    <span>{{ element.month }}</span>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3>{{ element.title }}</h3>
+                                <span>{{ element.text }}
+                                </span>
+                                <div class="icon">
+                                    <i class="fa-regular fa-user"></i>
+                                    <span>By {{ element.author }}</span>
+                                    <i class="fa-regular fa-folder"></i>
+                                    <span>{{ element.type }}</span>
+                                    <i class="fa-regular fa-comments"></i>
+                                    <span>{{ element.comments }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    ciao
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
 <style lang="scss">
 @use '../styles/partials/variables' as*;
 @use '../styles/partials/mixins';
 
 .w-100-3 {
-    width: calc((100% / 3) - 20px);
-    padding-right: 20px;
+    width: calc((100% / 3) - 5px);
 }
 
 .preview {
     background-color: $color-background-1;
+    padding: 30px 0px;
 
     .container {
         @include mixins.center;
@@ -180,17 +291,16 @@ export default {
 
         .card-posts {
             display: flex;
-            padding: 5px 0px;
+            padding: 10px 0px;
             border-bottom: 1px dotted $color-border-6;
 
             img {
-                width: 70px;
+                width: 60px;
             }
 
             span {
                 display: block;
                 padding: 0px 20px;
-                padding-top: 10px;
             }
 
             .date {
@@ -200,13 +310,18 @@ export default {
         }
 
         .featured-posts {
+
+            h3 {
+                padding-bottom: 30px;
+            }
+
             .card {
                 width: 100%;
-                padding: 20px 0px;
-
+                padding: 0px;
+                margin-bottom: 30px;
 
                 .info {
-                    width: 80%;
+                    width: 90%;
                     font-size: 9px;
 
                     button {
@@ -214,6 +329,94 @@ export default {
                     }
                 }
             }
+        }
+
+        .featured-author {
+            height: 50%;
+
+            h3 {
+                padding-bottom: 30px;
+            }
+
+            img {
+                width: 100px;
+            }
+        }
+    }
+}
+
+.center {
+    background-color: $color-white;
+
+    .wrapper {
+        @include mixins.center;
+        display: flex;
+
+        .item {
+            width: 70%;
+
+            .box {
+
+                .image {
+                    img {
+                        width: 100%;
+                    }
+
+                    .imageSpecial {
+                        width: calc(100% / 3);
+                    }
+                }
+
+                .info {
+                    padding: 20px 0px;
+                    display: flex;
+
+                    .date {
+                        .day {
+                            background-color: $color-background-1;
+                            padding: 10px 5px;
+                        }
+
+                        .month {
+                            background-color: $color-background-6;
+                            font-size: 10px;
+                            padding: 5px;
+                            color: $color-white;
+                        }
+                    }
+
+                    .text {
+                        padding-left: 20px;
+
+                        h3 {
+                            padding-bottom: 20px;
+                        }
+
+                        span {
+                            color: $color-text-3;
+                            font-size: 13px;
+                        }
+
+                        .icon {
+                            padding-top: 20px;
+                            font-size: 13px;
+                            color: $color-text-3;
+
+                            i {
+                                padding-right: 5px;
+                            }
+
+                            span {
+                                padding-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sidebar {
+            width: 30%;
         }
     }
 }
